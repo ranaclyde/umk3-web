@@ -90,17 +90,22 @@ export default function CharacterGrid() {
     }
   }, [activeIndex, playSfx]);
 
-  // Keyboard handler — always active (no locking)
+  // Keyboard handler — lock during victory, reset on arrows during confirmed
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
+      if (selectionPhase === 'victory') return;
       if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
         setHasInteracted(true);
+        if (selectionPhase === 'confirmed') {
+          setSelectionPhase('none');
+          setConfirmedFighterId(null);
+        }
       }
       onKeyDown(e);
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [onKeyDown]);
+  }, [onKeyDown, selectionPhase]);
 
   const activeFighter = allFighters[activeIndex] ?? allFighters[0];
   const activeContent = activeFighter ? (FIGHTER_CONTENT[activeFighter.id] ?? null) : null;
