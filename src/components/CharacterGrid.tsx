@@ -11,6 +11,8 @@ import {
 import { FIGHTER_CONTENT } from '../lib/fighterContent';
 import type { FighterAssets } from '../types/fighter';
 
+type SelectionPhase = 'none' | 'victory' | 'confirmed';
+
 // Pre-computed from module-level constants — doesn't change
 const REGULAR_ROWS: FighterAssets[][] = [];
 const ROW_OFFSETS: number[] = [];
@@ -30,6 +32,8 @@ export default function CharacterGrid() {
 
   const [flashActive, setFlashActive] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [selectionPhase, setSelectionPhase] = useState<SelectionPhase>('none');
+  const [confirmedFighterId, setConfirmedFighterId] = useState<string | null>(null);
 
   useEffect(() => {
     if (secretUnlocked) dispatch({ type: 'UNLOCK_SECRET' });
@@ -58,6 +62,9 @@ export default function CharacterGrid() {
       setFlashActive(true);
       setHasInteracted(true);
       setTimeout(() => setFlashActive(false), 200);
+      setConfirmedFighterId(fighter.id);
+      setSelectionPhase('victory');
+      setTimeout(() => setSelectionPhase('confirmed'), 800);
     },
     [allFighters, playSfx]
   );
