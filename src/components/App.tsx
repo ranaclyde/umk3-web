@@ -4,7 +4,6 @@ import { AppProvider, useAppState } from '../context/AppContext';
 import { SoundProvider, useSound } from '../context/SoundContext';
 import MenuPrincipal from './MenuPrincipal';
 import CharacterGrid from './CharacterGrid';
-import BioScreen from './BioScreen';
 
 function SoundToggle() {
   const { isMuted, toggleMute } = useSound();
@@ -44,8 +43,6 @@ function AppInner() {
       return <MenuPrincipal />;
     case 'character-select':
       return <CharacterGrid />;
-    case 'bio':
-      return <BioScreen />;
     default:
       return <MenuPrincipal />;
   }

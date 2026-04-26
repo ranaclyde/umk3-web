@@ -22,8 +22,6 @@ function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, screen: 'character-select', previousScreen: state.screen };
     case 'SELECT_FIGHTER':
       return { ...state, selectedFighter: action.fighterId };
-    case 'GO_TO_BIO':
-      return { ...state, screen: 'bio', previousScreen: state.screen };
     case 'GO_BACK':
       return { ...state, screen: state.previousScreen ?? 'menu', previousScreen: null };
     case 'UNLOCK_SECRET':

@@ -11,7 +11,7 @@ import {
 import { FIGHTER_CONTENT } from '../lib/fighterContent';
 import type { FighterAssets } from '../types/fighter';
 
-type SelectionPhase = 'none' | 'victory' | 'confirmed';
+type SelectionPhase = 'none' | 'confirmed';
 
 // Pre-computed from module-level constants — doesn't change
 const REGULAR_ROWS: FighterAssets[][] = [];
@@ -63,8 +63,7 @@ export default function CharacterGrid() {
       setHasInteracted(true);
       setTimeout(() => setFlashActive(false), 200);
       setConfirmedFighterId(fighter.id);
-      setSelectionPhase('victory');
-      setTimeout(() => setSelectionPhase('confirmed'), 800);
+      setSelectionPhase('confirmed');
     },
     [allFighters, playSfx]
   );
@@ -81,54 +80,58 @@ export default function CharacterGrid() {
     onExtraKey: pushKey,
   });
 
-  // Sound on cursor move
+  // Sound on cursor move + reset selection phase when navigating
   const prevIndex = useRef(activeIndex);
   useEffect(() => {
     if (prevIndex.current !== activeIndex) {
       playSfx('cursor');
       prevIndex.current = activeIndex;
+      // Reset selection phase to show base.gif in left panel while keeping right panel info
+      if (selectionPhase === 'confirmed') {
+        setSelectionPhase('none');
+      }
     }
-  }, [activeIndex, playSfx]);
+  }, [activeIndex, playSfx, selectionPhase]);
 
-  // Keyboard handler — lock during victory, reset on arrows during confirmed
+  // Keyboard handler — navigation always allowed
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (selectionPhase === 'victory') return;
       if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
         setHasInteracted(true);
-        if (selectionPhase === 'confirmed') {
-          setSelectionPhase('none');
-          setConfirmedFighterId(null);
-        }
       }
       onKeyDown(e);
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [onKeyDown, selectionPhase]);
+  }, [onKeyDown]);
 
   const activeFighter = allFighters[activeIndex] ?? allFighters[0];
-  const activeContent = activeFighter ? (FIGHTER_CONTENT[activeFighter.id] ?? null) : null;
 
   const confirmedFighter = confirmedFighterId ? (FIGHTER_BY_ID[confirmedFighterId] ?? null) : null;
   const confirmedContent = confirmedFighterId ? (FIGHTER_CONTENT[confirmedFighterId] ?? null) : null;
 
-  const panelFighter = selectionPhase !== 'none' && confirmedFighter ? confirmedFighter : activeFighter;
-  const panelContent = selectionPhase !== 'none' ? confirmedContent : activeContent;
-
-  const panelImage =
-    !hasInteracted
-      ? '/assets/images/unknow-selector.png'
-      : selectionPhase === 'victory'
-      ? (panelFighter?.victory ?? panelFighter?.base)
-      : selectionPhase === 'confirmed'
-      ? (panelFighter?.versus ?? panelFighter?.base)
-      : panelFighter?.base;
+  // Left panel: base.gif when navigating, victory when confirmed
+  const leftPanelImage = selectionPhase === 'confirmed' && confirmedFighter
+    ? confirmedFighter.victory
+    : activeFighter?.base;
 
   return (
     <div className="absolute inset-0 flex gap-3 p-3 font-mk">
 
-      {/* ── Left: grid area ─────────────────────────────── */}
+      {/* ── Left panel: base/victory image ─────────────── */}
+      <div className="w-32 flex flex-col shrink-0">
+        <div className="flex-1 flex items-end justify-center pb-4">
+          {leftPanelImage && (
+            <img
+              src={leftPanelImage}
+              alt={selectionPhase === 'confirmed' ? confirmedFighter?.displayName : activeFighter?.displayName}
+              className="max-w-full max-h-full object-contain"
+            />
+          )}
+        </div>
+      </div>
+
+      {/* ── Center: grid area ──────────────────────────── */}
       <div className="flex flex-col flex-1 gap-2 min-w-0">
         <div className="text-center text-mk-yellow text-xl tracking-widest shrink-0 text-glow-sm-yellow">
           CHOOSE YOUR FIGHTER
@@ -144,8 +147,8 @@ export default function CharacterGrid() {
                     key={fighter.id}
                     fighter={fighter}
                     isActive={flatIdx === activeIndex}
-                    isConfirmed={selectionPhase === 'victory' && fighter.id === confirmedFighterId}
-                    isLocked={selectionPhase === 'victory'}
+                    isConfirmed={selectionPhase === 'confirmed' && fighter.id === confirmedFighterId}
+                    isLocked={false}
                     onClick={() => { setHasInteracted(true); handleSelect(flatIdx); }}
                     onMouseEnter={() => { setHasInteracted(true); setActiveIndex(flatIdx); }}
                   />
@@ -159,8 +162,8 @@ export default function CharacterGrid() {
               <SelectorCell
                 fighter={enabledBossData}
                 isActive={REGULAR_FIGHTERS.length === activeIndex}
-                isConfirmed={selectionPhase === 'victory' && enabledBossData.id === confirmedFighterId}
-                isLocked={selectionPhase === 'victory'}
+                isConfirmed={selectionPhase === 'confirmed' && enabledBossData.id === confirmedFighterId}
+                isLocked={false}
                 onClick={() => { setHasInteracted(true); handleSelect(REGULAR_FIGHTERS.length); }}
                 onMouseEnter={() => { setHasInteracted(true); setActiveIndex(REGULAR_FIGHTERS.length); }}
               />
@@ -173,60 +176,66 @@ export default function CharacterGrid() {
         </div>
       </div>
 
-      {/* ── Right: info panel ───────────────────────────── */}
+      {/* ── Right: info panel (versus + bio) ───────────── */}
       <div className="w-64 flex flex-col shrink-0 border-l border-mk-border pl-3 min-h-0">
+        {confirmedFighter && confirmedContent ? (
+          <>
+            {/* Versus image */}
+            <div className="flex-1 min-h-0 flex items-center justify-center py-2">
+              {confirmedFighter.versus ? (
+                <img
+                  src={confirmedFighter.versus}
+                  alt={confirmedFighter.displayName}
+                  className="max-w-full max-h-full object-contain"
+                />
+              ) : (
+                <img
+                  src={confirmedFighter.base}
+                  alt={confirmedFighter.displayName}
+                  className="max-w-full max-h-full object-contain"
+                />
+              )}
+            </div>
 
-        {/* Character image */}
-        <div className="flex-1 min-h-0 flex items-center justify-center py-2">
-          <img
-            src={panelImage}
-            alt={hasInteracted ? panelFighter?.displayName : '?'}
-            className="max-w-full max-h-full object-contain"
-          />
-        </div>
+            {/* Name */}
+            <div className="text-center tracking-widest text-lg shrink-0 py-1 text-mk-yellow text-glow-sm-yellow">
+              {confirmedFighter.displayName.toUpperCase()}
+            </div>
 
-        {/* Name */}
-        <div className={clsx(
-          'text-center tracking-widest text-lg shrink-0 py-1',
-          hasInteracted ? ['text-mk-yellow', 'text-glow-sm-yellow'] : 'text-[#444]'
-        )}>
-          {hasInteracted ? panelFighter?.displayName.toUpperCase() : '???'}
-        </div>
+            {/* Bio + moves */}
+            <div className="overflow-y-auto shrink-0 text-[10px] leading-relaxed" style={{ maxHeight: '48%' }}>
+              <p className="text-[#999] mb-2">{confirmedContent.bio}</p>
 
-        {/* Bio + moves */}
-        {hasInteracted && panelContent && (
-          <div className="overflow-y-auto shrink-0 text-[10px] leading-relaxed" style={{ maxHeight: '48%' }}>
-            <p className="text-[#999] mb-2">{panelContent.bio}</p>
-
-            {panelContent.specialMoves.length > 0 && (
-              <>
-                <div className="text-mk-yellow tracking-widest text-[9px] border-b border-mk-border pb-0.5 mb-1">
-                  — SPECIAL MOVES —
-                </div>
-                {panelContent.specialMoves.map((m, i) => (
-                  <div key={i} className="mb-0.5">
-                    <span className="text-mk-green">▸ {m.name}:</span>{' '}
-                    <span className="text-[#777]">{m.input}</span>
+              {confirmedContent.specialMoves.length > 0 && (
+                <>
+                  <div className="text-mk-yellow tracking-widest text-[9px] border-b border-mk-border pb-0.5 mb-1">
+                    — SPECIAL MOVES —
                   </div>
-                ))}
-              </>
-            )}
+                  {confirmedContent.specialMoves.map((m, i) => (
+                    <div key={i} className="mb-0.5">
+                      <span className="text-mk-green">▸ {m.name}:</span>{' '}
+                      <span className="text-[#777]">{m.input}</span>
+                    </div>
+                  ))}
+                </>
+              )}
 
-            {panelContent.fatalities.length > 0 && (
-              <>
-                <div className="text-mk-red tracking-widest text-[9px] border-b border-mk-border pb-0.5 mb-1 mt-2">
-                  — FATALITIES —
-                </div>
-                {panelContent.fatalities.map((f, i) => (
-                  <div key={i} className="mb-0.5">
-                    <span className="text-mk-red">▸ {f.name}:</span>{' '}
-                    <span className="text-[#777]">{f.input}</span>
+              {confirmedContent.fatalities.length > 0 && (
+                <>
+                  <div className="text-mk-red tracking-widest text-[9px] border-b border-mk-border pb-0.5 mb-1 mt-2">
+                    — FATALITIES —
                   </div>
-                ))}
-              </>
-            )}
-          </div>
-        )}
+                  {confirmedContent.fatalities.map((f, i) => (
+                    <div key={i} className="mb-0.5">
+                      <span className="text-mk-red">▸ {f.name}:</span>{' '}
+                      <span className="text-[#777]">{f.input}</span>
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
+          </>
+        ) : null}
       </div>
 
       {/* Flash overlay */}

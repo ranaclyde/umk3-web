@@ -11,7 +11,11 @@
       "Bash(pnpm build *)",
       "Bash(npx skills *)",
       "Bash(bash *)",
-      "Bash(pnpm dev *)"
+      "Bash(pnpm dev *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git show *)",
+      "Read(//tmp/**)"
     ]
   }
 }

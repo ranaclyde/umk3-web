@@ -26,7 +26,7 @@ The app is a single page with a React state machine mounted in `src/pages/index.
 `AppContext` (`src/context/AppContext.tsx`) drives all screen transitions via `useReducer`:
 
 ```
-title → menu → character-select → bio
+title → menu → character-select
               ↗
         secret-menu (boss-toggle / sound-test sub-screens)
 ```
@@ -39,7 +39,6 @@ Each screen is a self-contained React component that reads from `useAppState()` 
 
 - `MenuPrincipal.tsx` — handles `title`, `menu`, and `secret-menu` screens. Has an internal `MenuPhase` state to avoid extra app-level states for the sub-menus.
 - `CharacterGrid.tsx` — the Kombat Zone selector. Manages flash/curtain timing with `setTimeout`.
-- `BioScreen.tsx` — fighter bio display. Reads `state.selectedFighter` to load from `FIGHTER_CONTENT`.
 
 ### Data Layer
 
