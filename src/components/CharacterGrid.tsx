@@ -120,7 +120,7 @@ export default function CharacterGrid() {
 
       {/* ── Left panel: base/victory image ─────────────── */}
       <div className="w-32 flex flex-col shrink-0">
-        <div className="flex-1 flex items-end justify-center pb-4">
+        <div className="flex-1 flex items-center justify-center pb-4">
           {leftPanelImage && (
             <img
               src={leftPanelImage}
