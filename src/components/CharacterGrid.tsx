@@ -114,7 +114,7 @@ export default function CharacterGrid() {
   const confirmedContent = confirmedFighterId ? (FIGHTER_CONTENT[confirmedFighterId] ?? null) : null;
 
   const panelFighter = selectionPhase !== 'none' && confirmedFighter ? confirmedFighter : activeFighter;
-  const panelContent = selectionPhase !== 'none' && confirmedContent ? confirmedContent : activeContent;
+  const panelContent = selectionPhase !== 'none' ? confirmedContent : activeContent;
 
   const panelImage =
     !hasInteracted
