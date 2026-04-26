@@ -1,0 +1,29 @@
+{
+  "id": "cyrax",
+  "displayName": "Cyrax",
+  "bio": "A Lin Kuei warrior transformed into a cyborg against his will. He struggles to suppress his humanity while carrying out deadly missions for the clan.",
+  "specialMoves": [
+    {
+      "name": "Net",
+      "input": "B, B, LK"
+    },
+    {
+      "name": "Bomb",
+      "input": "B, B, HP"
+    },
+    {
+      "name": "Teleport",
+      "input": "B, B, BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Net Bomb",
+      "input": "B, B, B, LK"
+    },
+    {
+      "name": "Self Destruct",
+      "input": "B, F, D, U, HP"
+    }
+  ]
+}

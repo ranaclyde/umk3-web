@@ -1,0 +1,21 @@
+{
+  "id": "classic-subzero",
+  "displayName": "Classic Sub-Zero",
+  "bio": "An original member of the Lin Kuei clan sent to assassinate Shang Tsung. He was killed by Scorpion but his spirit was drawn back by the conflict between realms.",
+  "specialMoves": [
+    {
+      "name": "Ice Blast",
+      "input": "D, F, LP"
+    },
+    {
+      "name": "Slide",
+      "input": "B+LP+LK+BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Freeze Shatter",
+      "input": "D, F, D, F, BL (close)"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "stryker",
+  "displayName": "Stryker",
+  "bio": "A riot control officer caught in Shao Kahn's invasion. Despite being an ordinary human with no special powers, he uses grenades and police equipment to survive.",
+  "specialMoves": [
+    {
+      "name": "Grenade",
+      "input": "D, F, LP"
+    },
+    {
+      "name": "High Grenade",
+      "input": "D, B, LP"
+    },
+    {
+      "name": "Baton Trip",
+      "input": "F, F, LK"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Grenade Toss",
+      "input": "F, F, F, LK"
+    },
+    {
+      "name": "Gun Blow",
+      "input": "F, F, F, HP"
+    }
+  ]
+}

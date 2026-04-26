@@ -1,0 +1,29 @@
+{
+  "id": "kano",
+  "displayName": "Kano",
+  "bio": "Leader of the Black Dragon criminal organization. He sold information to Shao Kahn before the invasion and fights purely for personal gain and survival.",
+  "specialMoves": [
+    {
+      "name": "Cannonball",
+      "input": "D, B, LK"
+    },
+    {
+      "name": "Eye Laser",
+      "input": "D, B, HP"
+    },
+    {
+      "name": "Knife Throw",
+      "input": "D, F, LP"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Heart Rip",
+      "input": "Hold LP: F, D, F"
+    },
+    {
+      "name": "Skeleton Rip",
+      "input": "Hold BL: F, F, D, U"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+---
+// 4:3 container with CRT scanlines and vignette
+---
+<div class="retro-wrapper">
+  <slot />
+</div>
+
+<style>
+  .retro-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    aspect-ratio: 4 / 3;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  /* Vignette */
+  .retro-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 55%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+    pointer-events: none;
+    z-index: 998;
+  }
+
+  /* CRT scanlines */
+  .retro-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.08) 2px,
+      rgba(0, 0, 0, 0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 999;
+  }
+</style>

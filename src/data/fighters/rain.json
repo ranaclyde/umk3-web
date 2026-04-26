@@ -1,0 +1,29 @@
+{
+  "id": "rain",
+  "displayName": "Rain",
+  "bio": "A half-Edenian warrior who serves Shao Kahn hoping to be recognized as royalty. He commands the power of water and lightning to devastating effect in battle.",
+  "specialMoves": [
+    {
+      "name": "Lightning",
+      "input": "D, F, HP"
+    },
+    {
+      "name": "Roundhouse",
+      "input": "B, B, HK"
+    },
+    {
+      "name": "Water Bubble",
+      "input": "D, F, LP"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Lightning Decapitation",
+      "input": "D, F, D, B, HP"
+    },
+    {
+      "name": "Bubble Burst",
+      "input": "B, B, D, B, HP"
+    }
+  ]
+}

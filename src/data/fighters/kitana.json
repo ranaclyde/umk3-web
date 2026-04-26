@@ -1,0 +1,29 @@
+{
+  "id": "kitana",
+  "displayName": "Kitana",
+  "bio": "A 10,000-year-old princess who serves as an assassin for Shao Kahn, though she is secretly his stepdaughter. She fights to free her home realm of Edenia.",
+  "specialMoves": [
+    {
+      "name": "Fan Throw",
+      "input": "F, F, BL"
+    },
+    {
+      "name": "Fan Lift",
+      "input": "B, B, B, HP"
+    },
+    {
+      "name": "Square Wave Punch",
+      "input": "D, B, HP"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Fan Decapitation",
+      "input": "Hold HP: Run, Run, BL"
+    },
+    {
+      "name": "Kiss of Death",
+      "input": "B, B, D, B, HP"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "kabal",
+  "displayName": "Kabal",
+  "bio": "A former Black Dragon member nearly killed in Shao Kahn's invasion. Disfigured behind a mask, he now uses his superhuman speed to fight for Earth's survival.",
+  "specialMoves": [
+    {
+      "name": "Plasma Blast",
+      "input": "D, B, HP"
+    },
+    {
+      "name": "Nomad Dash",
+      "input": "B, F, HK"
+    },
+    {
+      "name": "Spin Cycle",
+      "input": "D, F, BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Speed Decapitation",
+      "input": "U, U, D, D, BL"
+    },
+    {
+      "name": "Hook Slice",
+      "input": "B, B, F, F, BL (close)"
+    }
+  ]
+}

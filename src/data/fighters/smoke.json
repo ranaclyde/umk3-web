@@ -1,0 +1,29 @@
+{
+  "id": "smoke",
+  "displayName": "Smoke",
+  "bio": "A Lin Kuei ninja who escaped cybernetic transformation by fleeing the clan. He can transform himself into smoke, making him nearly impossible to grab.",
+  "specialMoves": [
+    {
+      "name": "Spear",
+      "input": "B, B, LP"
+    },
+    {
+      "name": "Teleport Punch",
+      "input": "F, F, LK"
+    },
+    {
+      "name": "Invisibility",
+      "input": "U, U, Run"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Teleport Slam",
+      "input": "D, U"
+    },
+    {
+      "name": "Smoke Cloud",
+      "input": "U, U, D, D"
+    }
+  ]
+}

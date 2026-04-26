@@ -1,0 +1,29 @@
+{
+  "id": "shangtsung",
+  "displayName": "Shang Tsung",
+  "bio": "The sorcerer who hosts Mortal Kombat for Shao Kahn. He steals the souls of his victims to sustain his youth and can morph into any warrior he has ever defeated.",
+  "specialMoves": [
+    {
+      "name": "Fireball",
+      "input": "B, B, HP"
+    },
+    {
+      "name": "Triple Fireball",
+      "input": "B, B, F, HP"
+    },
+    {
+      "name": "Morph",
+      "input": "Varies per character"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Soul Steal",
+      "input": "D, U"
+    },
+    {
+      "name": "Super Kintaro",
+      "input": "B, B, D, D, HP"
+    }
+  ]
+}

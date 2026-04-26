@@ -1,0 +1,29 @@
+{
+  "id": "sindel",
+  "displayName": "Sindel",
+  "bio": "Queen of Edenia resurrected by Shao Kahn as his loyal servant, with her true memories erased. In life she was a noble ruler; in undeath she is a deadly weapon of war.",
+  "specialMoves": [
+    {
+      "name": "Star Screamer",
+      "input": "F, F, HP"
+    },
+    {
+      "name": "Fireball",
+      "input": "D, F, HP"
+    },
+    {
+      "name": "Levitation",
+      "input": "B, B, B, LK"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Hair Whip Decapitation",
+      "input": "Hold HP: B, B, B"
+    },
+    {
+      "name": "Scream",
+      "input": "B, B, B, BL"
+    }
+  ]
+}

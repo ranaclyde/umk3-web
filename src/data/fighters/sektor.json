@@ -1,0 +1,29 @@
+{
+  "id": "sektor",
+  "displayName": "Sektor",
+  "bio": "A Lin Kuei warrior who fully embraced cybernetic transformation. Unlike Cyrax, Sektor feels no conflict about his robotic form and hunts defectors without mercy.",
+  "specialMoves": [
+    {
+      "name": "Teleport Uppercut",
+      "input": "F, F, LP"
+    },
+    {
+      "name": "Flamethrower",
+      "input": "F, F, HK"
+    },
+    {
+      "name": "Homing Missile",
+      "input": "D, F, HP"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Missile Barrage",
+      "input": "F, B, F, B, HP"
+    },
+    {
+      "name": "Toasty",
+      "input": "U, U, F, D, HP"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "human-smoke",
+  "displayName": "Human Smoke",
+  "bio": "A Lin Kuei warrior who chose death over cybernetic transformation. His soul survived and he fights on to destroy those who betrayed him and his clan.",
+  "specialMoves": [
+    {
+      "name": "Spear",
+      "input": "B, B, LP"
+    },
+    {
+      "name": "Teleport Punch",
+      "input": "F, F, LK"
+    },
+    {
+      "name": "Invisibility",
+      "input": "U, U, Run"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Spear Impale",
+      "input": "U, U, U, HP"
+    }
+  ]
+}

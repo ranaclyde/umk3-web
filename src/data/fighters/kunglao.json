@@ -1,0 +1,29 @@
+{
+  "id": "kunglao",
+  "displayName": "Kung Lao",
+  "bio": "A Shaolin monk and descendant of the Great Kung Lao defeated by Goro centuries ago. He wears a razor-edged hat and fights to end Shao Kahn's domination.",
+  "specialMoves": [
+    {
+      "name": "Hat Throw",
+      "input": "B, F, LP"
+    },
+    {
+      "name": "Teleport",
+      "input": "D, U"
+    },
+    {
+      "name": "Spin",
+      "input": "B, B, BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Hat Split",
+      "input": "Hold LP: Run, BL, Run, BL"
+    },
+    {
+      "name": "Spin Slice",
+      "input": "U, D, U, BL (close)"
+    }
+  ]
+}

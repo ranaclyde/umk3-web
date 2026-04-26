@@ -1,0 +1,29 @@
+{
+  "id": "mileena",
+  "displayName": "Mileena",
+  "bio": "A clone of Kitana created by Shang Tsung using Tarkatan blood. Behind her veil hides savage toothed jaws. She serves Shao Kahn with fanatical loyalty.",
+  "specialMoves": [
+    {
+      "name": "Sai Throw",
+      "input": "B, F, HP"
+    },
+    {
+      "name": "Teleport Kick",
+      "input": "F, F, LK"
+    },
+    {
+      "name": "Rolling Thunder",
+      "input": "D, F, LK"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Sai Stab",
+      "input": "Hold HP: F, F, F"
+    },
+    {
+      "name": "Man Eater",
+      "input": "U, U, D, U, HP"
+    }
+  ]
+}

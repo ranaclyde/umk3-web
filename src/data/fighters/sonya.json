@@ -1,0 +1,29 @@
+{
+  "id": "sonya",
+  "displayName": "Sonya",
+  "bio": "A Special Forces lieutenant drawn into the tournament while pursuing Kano. She fights to defeat Outworld's invaders and bring justice to those who threaten Earth.",
+  "specialMoves": [
+    {
+      "name": "Energy Ring",
+      "input": "F, B, B, F, LP"
+    },
+    {
+      "name": "Leg Grab",
+      "input": "D+LP+BL"
+    },
+    {
+      "name": "Air Throw",
+      "input": "BL (near airborne foe)"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Kiss of Death",
+      "input": "F, F, B, B, BL"
+    },
+    {
+      "name": "Scissor Split",
+      "input": "B, B, D, D, LK"
+    }
+  ]
+}

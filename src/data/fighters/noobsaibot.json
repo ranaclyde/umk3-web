@@ -1,0 +1,25 @@
+{
+  "id": "noobsaibot",
+  "displayName": "Noob Saibot",
+  "bio": "The original Sub-Zero, resurrected as a dark wraith after his death at Scorpion's hands. He has given himself entirely to evil and serves the forces of darkness.",
+  "specialMoves": [
+    {
+      "name": "Shadow Throw",
+      "input": "D, U"
+    },
+    {
+      "name": "Shadow Charge",
+      "input": "F, F, LK"
+    },
+    {
+      "name": "Darkener",
+      "input": "B, B, BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Shadow Grab",
+      "input": "F, F, F, BL"
+    }
+  ]
+}

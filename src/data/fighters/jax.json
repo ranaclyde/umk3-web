@@ -1,0 +1,29 @@
+{
+  "id": "jax",
+  "displayName": "Jax",
+  "bio": "A Special Forces officer and partner to Sonya Blade. After losing his arms in battle, Jax had them replaced with powerful bionic implants that multiply his strength.",
+  "specialMoves": [
+    {
+      "name": "Energy Wave",
+      "input": "F, F, HP"
+    },
+    {
+      "name": "Ground Slam",
+      "input": "B, B, D, B, HP"
+    },
+    {
+      "name": "Gotcha Grab",
+      "input": "F, F, LP"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Head Clap",
+      "input": "Hold LP: B, B, B, F"
+    },
+    {
+      "name": "Arm Rip",
+      "input": "Hold LP: B, F, F, F"
+    }
+  ]
+}

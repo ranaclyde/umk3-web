@@ -1,0 +1,25 @@
+{
+  "id": "ermac",
+  "displayName": "Ermac",
+  "bio": "A fusion of thousands of warrior souls enslaved by Shao Kahn. He serves as the emperor's enforcer, wielding the combined telekinetic power of all the souls within him.",
+  "specialMoves": [
+    {
+      "name": "Telekinetic Slam",
+      "input": "B, B, HK"
+    },
+    {
+      "name": "Fireball",
+      "input": "D, F, LP"
+    },
+    {
+      "name": "Teleport Punch",
+      "input": "F, F, LK"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Soul Absorb",
+      "input": "B, B, D, D, BL"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "nightwolf",
+  "displayName": "Nightwolf",
+  "bio": "A Native American shaman chosen by the Great Spirit to defend Earth. He channels the power of his ancestors through tomahawks, arrows of light, and a reflective shield.",
+  "specialMoves": [
+    {
+      "name": "Arrow",
+      "input": "D, F, LP"
+    },
+    {
+      "name": "Tomahawk",
+      "input": "D, F, LK"
+    },
+    {
+      "name": "Shoulder Charge",
+      "input": "F, F, BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Arrow Decapitation",
+      "input": "D, D, F, F, BL"
+    },
+    {
+      "name": "Axe Split",
+      "input": "F, D, F, D, HP"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "jade",
+  "displayName": "Jade",
+  "bio": "An assassin in service to Shao Kahn and loyal friend to Princess Kitana. She wields a razor boomerang and staff, and is immune to all projectile attacks.",
+  "specialMoves": [
+    {
+      "name": "Boomerang",
+      "input": "B, F, LK"
+    },
+    {
+      "name": "Boomerang Return",
+      "input": "B, F, LK (hold)"
+    },
+    {
+      "name": "Projectile Immunity",
+      "input": "B, F, LP"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Shadow Kick Decapitation",
+      "input": "U, U, D, U, BL"
+    }
+  ]
+}

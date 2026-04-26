@@ -1,0 +1,29 @@
+{
+  "id": "subzero",
+  "displayName": "Sub-Zero",
+  "bio": "The younger brother of the original Sub-Zero, who took up the mantle after his brother's death. He commands the power of ice and cold, wielding them with lethal precision.",
+  "specialMoves": [
+    {
+      "name": "Ice Blast",
+      "input": "D, F, LP"
+    },
+    {
+      "name": "Ice Clone",
+      "input": "D, B, LP"
+    },
+    {
+      "name": "Slide",
+      "input": "B+LP+LK+BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Freeze Shatter",
+      "input": "D, F, D, F, BL (close)"
+    },
+    {
+      "name": "Ice Sculpture",
+      "input": "F, D, F, D, BL"
+    }
+  ]
+}

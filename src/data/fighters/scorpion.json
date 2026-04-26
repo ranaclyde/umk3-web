@@ -1,0 +1,29 @@
+{
+  "id": "scorpion",
+  "displayName": "Scorpion",
+  "bio": "A ninja specter resurrected from the Netherrealm after being killed by Quan Chi. He seeks vengeance for the destruction of his clan and the death of his family.",
+  "specialMoves": [
+    {
+      "name": "Spear",
+      "input": "B, B, LP"
+    },
+    {
+      "name": "Teleport Punch",
+      "input": "D, B, HP"
+    },
+    {
+      "name": "Air Throw",
+      "input": "BL (in air near foe)"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Toasty",
+      "input": "U, U"
+    },
+    {
+      "name": "Spear Decapitation",
+      "input": "B, B, F, F, BL"
+    }
+  ]
+}

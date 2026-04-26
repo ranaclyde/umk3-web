@@ -1,0 +1,25 @@
+{
+  "id": "motaro",
+  "displayName": "Motaro",
+  "bio": "A centaur warrior of immense power from Outworld. Shao Kahn's personal protector, Motaro is nearly invincible and immune to most projectile attacks.",
+  "specialMoves": [
+    {
+      "name": "Fireball",
+      "input": "D, D, HP"
+    },
+    {
+      "name": "Teleport",
+      "input": "D, D, BL"
+    },
+    {
+      "name": "Grab and Throw",
+      "input": "F, F, BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Rip and Slam",
+      "input": "F, F, B, B, HP"
+    }
+  ]
+}

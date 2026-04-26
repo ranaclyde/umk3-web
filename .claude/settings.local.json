@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(pnpm add *)",
+      "Bash(pnpm remove *)",
+      "Bash(python3 gen_fighters.py)",
+      "Bash(node -e ' *)",
+      "Bash(node gen_fighters.mjs)",
+      "Bash(pnpm astro *)",
+      "Bash(pnpm build *)",
+      "Bash(npx skills *)",
+      "Bash(bash *)",
+      "Bash(pnpm dev *)"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "shaokahn",
+  "displayName": "Shao Kahn",
+  "bio": "The emperor of Outworld who seeks to merge all realms under his dominion. An impossibly powerful tyrant who rules through fear, absolute strength, and dark sorcery.",
+  "specialMoves": [
+    {
+      "name": "Hammer",
+      "input": "F, F, BL"
+    },
+    {
+      "name": "Shoulder Charge",
+      "input": "F, F, LP"
+    },
+    {
+      "name": "Explosive Ball",
+      "input": "D, F, HP"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Kahn Crush",
+      "input": "Hold HP: F, F, D, D"
+    },
+    {
+      "name": "Shadow Slam",
+      "input": "D, D, D, BL"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "reptile",
+  "displayName": "Reptile",
+  "bio": "The last survivor of the Saurian race, Reptile serves Shao Kahn in exchange for a promise of finding others of his kind. He can turn invisible and spit blinding acid.",
+  "specialMoves": [
+    {
+      "name": "Force Ball",
+      "input": "B, B, HP"
+    },
+    {
+      "name": "Acid Spit",
+      "input": "F, F, HP"
+    },
+    {
+      "name": "Slide",
+      "input": "B+LP+LK+BL"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Face Melt",
+      "input": "Hold HP: B, B, B"
+    },
+    {
+      "name": "Devour",
+      "input": "U, D, U, D, HP"
+    }
+  ]
+}

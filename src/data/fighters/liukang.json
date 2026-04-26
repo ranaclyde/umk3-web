@@ -1,0 +1,29 @@
+{
+  "id": "liukang",
+  "displayName": "Liu Kang",
+  "bio": "Earth's greatest champion and hero of Mortal Kombat. A Shaolin monk trained by Raiden himself, Liu Kang has defeated Shang Tsung and Kahn's champions in tournament.",
+  "specialMoves": [
+    {
+      "name": "Fireball",
+      "input": "F, F, HP"
+    },
+    {
+      "name": "Flying Kick",
+      "input": "F, F, HK"
+    },
+    {
+      "name": "Bicycle Kick",
+      "input": "B, B, B, HK"
+    }
+  ],
+  "fatalities": [
+    {
+      "name": "Dragon Bite",
+      "input": "F, F, B, B, HP"
+    },
+    {
+      "name": "Fireball Annihilation",
+      "input": "F, F, F, BL"
+    }
+  ]
+}
