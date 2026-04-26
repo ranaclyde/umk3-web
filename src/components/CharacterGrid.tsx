@@ -110,6 +110,21 @@ export default function CharacterGrid() {
   const activeFighter = allFighters[activeIndex] ?? allFighters[0];
   const activeContent = activeFighter ? (FIGHTER_CONTENT[activeFighter.id] ?? null) : null;
 
+  const confirmedFighter = confirmedFighterId ? (FIGHTER_BY_ID[confirmedFighterId] ?? null) : null;
+  const confirmedContent = confirmedFighterId ? (FIGHTER_CONTENT[confirmedFighterId] ?? null) : null;
+
+  const panelFighter = selectionPhase !== 'none' && confirmedFighter ? confirmedFighter : activeFighter;
+  const panelContent = selectionPhase !== 'none' && confirmedContent ? confirmedContent : activeContent;
+
+  const panelImage =
+    !hasInteracted
+      ? '/assets/images/unknow-selector.png'
+      : selectionPhase === 'victory'
+      ? (panelFighter?.victory ?? panelFighter?.base)
+      : selectionPhase === 'confirmed'
+      ? (panelFighter?.versus ?? panelFighter?.base)
+      : panelFighter?.base;
+
   return (
     <div className="absolute inset-0 flex gap-3 p-3 font-mk">
 
@@ -129,6 +144,8 @@ export default function CharacterGrid() {
                     key={fighter.id}
                     fighter={fighter}
                     isActive={flatIdx === activeIndex}
+                    isConfirmed={selectionPhase === 'victory' && fighter.id === confirmedFighterId}
+                    isLocked={selectionPhase === 'victory'}
                     onClick={() => { setHasInteracted(true); handleSelect(flatIdx); }}
                     onMouseEnter={() => { setHasInteracted(true); setActiveIndex(flatIdx); }}
                   />
@@ -142,6 +159,8 @@ export default function CharacterGrid() {
               <SelectorCell
                 fighter={enabledBossData}
                 isActive={REGULAR_FIGHTERS.length === activeIndex}
+                isConfirmed={selectionPhase === 'victory' && enabledBossData.id === confirmedFighterId}
+                isLocked={selectionPhase === 'victory'}
                 onClick={() => { setHasInteracted(true); handleSelect(REGULAR_FIGHTERS.length); }}
                 onMouseEnter={() => { setHasInteracted(true); setActiveIndex(REGULAR_FIGHTERS.length); }}
               />
@@ -160,8 +179,8 @@ export default function CharacterGrid() {
         {/* Character image */}
         <div className="flex-1 min-h-0 flex items-center justify-center py-2">
           <img
-            src={hasInteracted ? activeFighter?.base : '/assets/images/unknow-selector.png'}
-            alt={hasInteracted ? activeFighter?.displayName : '?'}
+            src={panelImage}
+            alt={hasInteracted ? panelFighter?.displayName : '?'}
             className="max-w-full max-h-full object-contain"
           />
         </div>
@@ -171,20 +190,20 @@ export default function CharacterGrid() {
           'text-center tracking-widest text-lg shrink-0 py-1',
           hasInteracted ? ['text-mk-yellow', 'text-glow-sm-yellow'] : 'text-[#444]'
         )}>
-          {hasInteracted ? activeFighter?.displayName.toUpperCase() : '???'}
+          {hasInteracted ? panelFighter?.displayName.toUpperCase() : '???'}
         </div>
 
         {/* Bio + moves */}
-        {hasInteracted && activeContent && (
+        {hasInteracted && panelContent && (
           <div className="overflow-y-auto shrink-0 text-[10px] leading-relaxed" style={{ maxHeight: '48%' }}>
-            <p className="text-[#999] mb-2">{activeContent.bio}</p>
+            <p className="text-[#999] mb-2">{panelContent.bio}</p>
 
-            {activeContent.specialMoves.length > 0 && (
+            {panelContent.specialMoves.length > 0 && (
               <>
                 <div className="text-mk-yellow tracking-widest text-[9px] border-b border-mk-border pb-0.5 mb-1">
                   — SPECIAL MOVES —
                 </div>
-                {activeContent.specialMoves.map((m, i) => (
+                {panelContent.specialMoves.map((m, i) => (
                   <div key={i} className="mb-0.5">
                     <span className="text-mk-green">▸ {m.name}:</span>{' '}
                     <span className="text-[#777]">{m.input}</span>
@@ -193,12 +212,12 @@ export default function CharacterGrid() {
               </>
             )}
 
-            {activeContent.fatalities.length > 0 && (
+            {panelContent.fatalities.length > 0 && (
               <>
                 <div className="text-mk-red tracking-widest text-[9px] border-b border-mk-border pb-0.5 mb-1 mt-2">
                   — FATALITIES —
                 </div>
-                {activeContent.fatalities.map((f, i) => (
+                {panelContent.fatalities.map((f, i) => (
                   <div key={i} className="mb-0.5">
                     <span className="text-mk-red">▸ {f.name}:</span>{' '}
                     <span className="text-[#777]">{f.input}</span>
