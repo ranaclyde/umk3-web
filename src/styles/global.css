@@ -33,7 +33,7 @@
   padding: 0;
 }
 
-html, body {
+html {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -41,6 +41,15 @@ html, body {
     linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
     url('/assets/images/background.png') center / cover no-repeat fixed;
   background-color: #000;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ── Global pixelated rendering ─────────────────────────────────── */
@@ -76,13 +85,19 @@ img {
 }
 
 /* Text glow helpers (no Tailwind equivalent for text-shadow) */
-.text-glow-yellow    { text-shadow: 0 0 10px var(--color-mk-yellow), 0 0 4px var(--color-mk-yellow); }
-.text-glow-sm-yellow { text-shadow: 0 0 8px var(--color-mk-yellow); }
-.text-glow-red       { text-shadow: 0 0 10px var(--color-mk-red); }
+.text-glow-yellow    { text-shadow: 0 0 14px var(--color-mk-yellow), 0 0 5px var(--color-mk-yellow), 0 0 2px var(--color-mk-yellow); }
+.text-glow-sm-yellow { text-shadow: 0 0 10px var(--color-mk-yellow), 0 0 3px var(--color-mk-yellow); }
+.text-glow-red       { text-shadow: 0 0 12px var(--color-mk-red), 0 0 4px var(--color-mk-red); }
+.text-glow-green     { text-shadow: 0 0 8px var(--color-mk-green); }
+
+/* Custom scrollbar for info panels */
+.mk-scrollbar::-webkit-scrollbar        { width: 3px; }
+.mk-scrollbar::-webkit-scrollbar-track  { background: transparent; }
+.mk-scrollbar::-webkit-scrollbar-thumb  { background: var(--color-mk-border); }
 
 /* Cell glow for active selector */
 .cell-glow-green {
-  box-shadow: 0 0 10px var(--color-mk-green), inset 0 0 6px rgba(39,174,96,0.25);
+  box-shadow: 0 0 12px var(--color-mk-green), 0 0 4px var(--color-mk-green), inset 0 0 6px rgba(39,174,96,0.2);
 }
 
 /* Cell blink for confirmed selection */

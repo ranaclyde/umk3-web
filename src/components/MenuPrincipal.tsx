@@ -139,19 +139,19 @@ function MainMenu({
   }, [onKeyDown]);
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 font-mk">
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 md:gap-8 font-mk">
       <img
         src="/assets/images/logo-umk3.png"
         alt="Ultimate Mortal Kombat 3"
-        className="max-w-[78%] relative"
+        className="max-w-[90%] md:max-w-[78%] relative"
       />
-      <div className="relative flex flex-col gap-3 items-start">
+      <div className="relative flex flex-col gap-1 md:gap-3 items-start">
         {items.map((label, i) => (
           <div
             key={label}
             onClick={() => (i === 0 ? onStart() : onOptions())}
             className={clsx(
-              'text-3xl tracking-widest cursor-pointer flex items-center gap-3',
+              'text-2xl md:text-3xl tracking-widest cursor-pointer touch-manipulation flex items-center gap-3 py-2 md:py-0',
               i === activeIndex ? ['text-mk-yellow', 'text-glow-yellow'] : 'text-[#ccc]'
             )}
           >
@@ -192,8 +192,8 @@ function SecretMenu({
   }, [onKeyDown]);
 
   return (
-    <div className="absolute inset-0 bg-mk-dark flex flex-col items-center justify-center gap-1.5 font-mk">
-      <div className="text-mk-red text-2xl tracking-widest mb-5 text-glow-red">
+    <div className="absolute inset-0 bg-mk-dark flex flex-col items-center justify-center gap-0.5 md:gap-1.5 font-mk">
+      <div className="text-mk-red text-xl md:text-2xl tracking-widest mb-4 md:mb-5 text-glow-red">
         {title}
       </div>
       {items.map((label, i) => (
@@ -201,7 +201,7 @@ function SecretMenu({
           key={i}
           onClick={() => onSelect(i)}
           className={clsx(
-            'text-base tracking-widest cursor-pointer flex items-center gap-2 py-1',
+            'text-sm md:text-base tracking-widest cursor-pointer touch-manipulation flex items-center gap-2 py-2.5 md:py-1 px-4 md:px-0',
             i === activeIndex ? ['text-mk-yellow', 'text-glow-sm-yellow'] : 'text-[#888]'
           )}
         >

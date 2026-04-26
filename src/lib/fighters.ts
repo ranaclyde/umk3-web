@@ -15,22 +15,16 @@ const WIN_GIFS: Record<string, string> = {
 };
 
 // Fighters with no versus.png
-const NO_VERSUS = new Set(['motaro', 'shaokahn']);
+const NO_VERSUS = new Set(['motaro']);
 
 function asset(id: string): FighterAssets {
-  // subzero uses subzero.png; shaokahn has a typo seelctor.png
-  const selectorFile =
-    id === 'subzero'   ? 'subzero.png'   :
-    id === 'shaokahn'  ? 'seelctor.png'  :
-    'selector.png';
-
   return {
     id,
     displayName: DISPLAY_NAMES[id] ?? id,
     isBoss: id === 'motaro' || id === 'shaokahn',
     gridIndex: -1, // assigned below
     base:     `${BASE}/${id}/base.gif`,
-    selector: `${BASE}/${id}/${selectorFile}`,
+    selector: `${BASE}/${id}/selector.png`,
     versus:   NO_VERSUS.has(id) ? null : `${BASE}/${id}/versus.png`,
     victory:  `${BASE}/${id}/victory.${VICTORY_GIF.has(id) ? 'gif' : 'png'}`,
     winGif:   WIN_GIFS[id] ?? null,
