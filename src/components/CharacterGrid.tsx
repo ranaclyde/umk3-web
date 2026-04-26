@@ -135,7 +135,7 @@ export default function CharacterGrid() {
 
       {/* ── Center: grid area ──────────────────────────── */}
       <div className="flex flex-col flex-1 gap-1.5 md:gap-2 min-w-0">
-        <div className="text-center text-mk-yellow text-sm md:text-xl tracking-widest shrink-0 text-glow-sm-yellow">
+        <div className="text-center text-mk-yellow text-sm md:text-2xl tracking-widest shrink-0 text-glow-sm-yellow">
           CHOOSE YOUR FIGHTER
         </div>
 

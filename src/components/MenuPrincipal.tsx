@@ -123,7 +123,7 @@ function MainMenu({
   onOptions: () => void;
   onKey: (k: string) => void;
 }) {
-  const items = secretUnlocked ? ['START', 'OPTIONS'] : ['START'];
+  const items = secretUnlocked ? ['START GAME', 'OPTIONS'] : ['START GAME'];
 
   const { activeIndex, onKeyDown } = useInput({
     itemCount: items.length,
