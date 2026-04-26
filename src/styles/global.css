@@ -84,3 +84,12 @@ img {
 .cell-glow-green {
   box-shadow: 0 0 10px var(--color-mk-green), inset 0 0 6px rgba(39,174,96,0.25);
 }
+
+/* Cell blink for confirmed selection */
+@keyframes mk-cell-blink {
+  0%,  49% { border-color: var(--color-mk-green); box-shadow: 0 0 10px var(--color-mk-green), inset 0 0 6px rgba(39,174,96,0.25); }
+  50%, 100% { border-color: transparent; box-shadow: none; }
+}
+.cell-blink {
+  animation: mk-cell-blink 200ms step-start 3;
+}
