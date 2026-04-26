@@ -226,12 +226,13 @@ export default function CharacterGrid() {
 interface SelectorCellProps {
   fighter: FighterAssets;
   isActive: boolean;
+  isConfirmed: boolean;
+  isLocked: boolean;
   onClick: () => void;
   onMouseEnter: () => void;
 }
 
-function SelectorCell({ fighter, isActive, onClick, onMouseEnter }: SelectorCellProps) {
-  // Human Smoke: alternate between human-smoke and smoke selector every 2s
+function SelectorCell({ fighter, isActive, isConfirmed, isLocked, onClick, onMouseEnter }: SelectorCellProps) {
   const [smokeAlt, setSmokeAlt] = useState(false);
   useEffect(() => {
     if (fighter.id !== 'human-smoke') return;
@@ -246,11 +247,13 @@ function SelectorCell({ fighter, isActive, onClick, onMouseEnter }: SelectorCell
 
   return (
     <div
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
+      onClick={isLocked ? undefined : onClick}
+      onMouseEnter={isLocked ? undefined : onMouseEnter}
       className={clsx(
-        'cursor-pointer shrink-0 overflow-hidden bg-mk-dark border-2 w-20 h-20',
-        isActive ? ['border-mk-green', 'cell-glow-green'] : 'border-mk-border'
+        'shrink-0 overflow-hidden bg-mk-dark border-2 w-20 h-20',
+        isLocked ? 'cursor-default' : 'cursor-pointer',
+        isActive ? ['border-mk-green', 'cell-glow-green'] : 'border-mk-border',
+        isConfirmed && 'cell-blink',
       )}
     >
       <img src={src} alt={fighter.displayName} className="w-full h-full object-cover" />
